@@ -21,9 +21,23 @@ when the number of threads calling the `pthread_barrier_wait` is equal to the
 number specified by the `num` variable which is set during initialisation.
 Finally the `count` field records the number of threads have arrived at the
 barrier, and if it equals `num`, all threads have arrived and they may pass
-the barrier. 
-{% highlight c %}
+the barrier.
 
+The `init` function is pretty straightforward, so let us focus on the `wait`
+funciton. The first step is to acquire the `mutex` which protects the
+whole barrier. Then a thread saves the flag in its local variable and increases
+the `count` varibles. If the `count` equals to `num`, it means that the calling
+thread is the last thread which needs to wake up other waiting threads.
+The last thread resets the barrier counter to 0 and changes the barrier flag
+to a different value. After that, the `pthread_cond_broadcast` is used
+wake up other threads while the thread is holding the `mutex`. On the
+other hand, other threads called `wait` function early execute
+`pthread_cond_wait` to block themselves. After they are woken up by
+the last thread, they check if the barrier `flag` value is different
+from the value saved locally and exit the loop if so.
+
+
+{% highlight c %}
 #define PTHREAD_BARRIER_SERIAL_THREAD   1
 
 typedef struct pthread_barrier {
@@ -73,7 +87,6 @@ int pthread_barrier_wait(pthread_barrier_t *bar)
   if ((ret = pthread_mutex_unlock(&(bar->mutex)))) return ret;
   return 0;
 }
-
 {% endhighlight %}
 
 [1]: https://github.com/yyshen/mbw
