@@ -1,6 +1,6 @@
 # Site settings
-title: ys 
-email: kernelin@gmx.com 
+title: Essays on System Programming
+email: yshen@hybridkernel.com
 description: > # this means to ignore newlines until "baseurl:"
   A personal blog about programming
 baseurl: "" # the subpath of your site, e.g. /blog/
