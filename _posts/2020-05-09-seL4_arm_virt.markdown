@@ -45,7 +45,7 @@ summary:
   translation controlled by `VTTBR_EL2` is in charge. 
   
   3. System calls for injecting virtual interrupts to a VCPU. This requires the
-  hardware support for the generic interrupt controller (**GIC**). Cureently, 
+  hardware support for the generic interrupt controller (**GIC**). Currently,
   GICv2 and GICv3 are supported.
   
 There is a missing piece in the puzzle: system memory management unit
