@@ -56,7 +56,8 @@ As a microkernel, seL4 only provides mechanisms for building VMs. A user-mode
 (EL0) virtual machine manager (VMM) is responsible for creating and managing a
 VM with the provided systems calls. Therefore, the complicated code for handling
 VM exits, device emulation, injecting virtual interrupts, and other tedious
-tasks is all implemented in user-mode, without introducing significant new
+tasks are all implemented in user-mode, without introducing significant new
 code to the trusted computing base (TCB). Therefore, a bug in the VMM may
 crash the VMM and the VM managed by the VMM, but not the microkernel or other
 applications.
+
