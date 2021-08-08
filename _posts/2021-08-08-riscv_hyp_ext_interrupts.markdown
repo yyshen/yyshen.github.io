@@ -21,7 +21,7 @@ The **hvip** (hypervisor virtual interrupt pending) CSR is used by the hyperviso
 
 **VSEIP** is read-only in **hip** and is the logical OR of the following:
 1. bit **VSEIP** of **hvip**;
-2. the bit of **hgeip** selected by **hstatus**.VGEIN; and
+2. the bit of **hgeip** selected by **hstatus.VGEIN**; and
 3. any other platform-specific exteranl interrupt signal directed to VS-level.
 
 **VSTIP** is read-only in **hip** and it is the logical OR of **hvip**.**VSTIP** and any other paltform-spcific timer interrupt signal directed to VS-level.
