@@ -1,6 +1,6 @@
 ---
 layout: post
-titile: "RISCV Hypervisor Extension: Interrupts"
+title: "RISCV Hypervisor Extension: Interrupts"
 date: 2021-08-08 23:32:00
 categories:
 tags: riscv, system, virtualisation
@@ -20,7 +20,7 @@ The **hvip** (hypervisor virtual interrupt pending) CSR is used by the hyperviso
 ***i*** will be taken in HS-mode if bit ***i*** is set in both hip and hie.
 
 **VSEIP** is read-only in **hip** and is the logical OR of the following:
-1. bit **VSEIP** of **hvip;
+1. bit **VSEIP** of **hvip**;
 2. the bit of **hgeip** selected by **hstatus**.VGEIN; and
 3. any other platform-specific exteranl interrupt signal directed to VS-level.
 
