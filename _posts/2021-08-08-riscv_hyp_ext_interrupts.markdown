@@ -12,8 +12,8 @@ Injecting interrupts is an important task of a hypervisor. The current RISCV hyp
 I read the specification several times and still have not got the relations of the CSRs right. I will try to summarise my understanding here to
 help myself and (maybe) you.
 
-The **hvip** (hypervisor virtual interrupt pending) CSR is used by the hypervisor to inject an interrupt to VS-mode. Settting **VSEIP** (bit 10),
-**VSTIP** (bit 6), or **VSSIP** (bit 2) indicates that an exteranl interrupt, a timer interrupt, or a software interrupt is pending for VS-mode.
+The **hvip** (hypervisor virtual interrupt pending) CSR is used by the hypervisor to inject an interrupt to VS-mode. Setting **VSEIP** (bit 10),
+**VSTIP** (bit 6), or **VSSIP** (bit 2) indicates that an external interrupt, a timer interrupt, or a software interrupt is pending for VS-mode.
 
 **hip** indicates pending interrupts for VS-level interrupts (**VSEIP** (10), **VSTIP** (6), and **VSSIP** (2)) and HS-level interrupts (**SGEIP** (12)).
 **hie** has the enable bits (**VSEIE** (10), **VSTIE** (6), **VSSIE** (2), and **SGEIE** (12)) for the corresponding pending interrupt bits. an interrupt
@@ -22,9 +22,9 @@ The **hvip** (hypervisor virtual interrupt pending) CSR is used by the hyperviso
 **VSEIP** is read-only in **hip** and is the logical OR of the following:
 1. bit **VSEIP** of **hvip**;
 2. the bit of **hgeip** selected by **hstatus.VGEIN**; and
-3. any other platform-specific exteranl interrupt signal directed to VS-level.
+3. any other platform-specific external interrupt signal directed to VS-level.
 
-**VSTIP** is read-only in **hip** and it is the logical OR of **hvip**.**VSTIP** and any other paltform-spcific timer interrupt signal directed to VS-level.
+**VSTIP** is read-only in **hip** and it is the logical OR of **hvip**.**VSTIP** and any other platform-specific timer interrupt signal directed to VS-level.
 
 **VSSIP** in **hip** is an alias of the same bit in **hvip**.
 
