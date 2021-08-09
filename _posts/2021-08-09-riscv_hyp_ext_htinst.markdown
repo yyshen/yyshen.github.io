@@ -58,10 +58,5 @@ If both conditions are met, the value written to **mtinst** or **htinst** must b
 Write pseudeinstructions are for updating A and/or D bits in the VS-level page table only.
 
 
-
-
-
-
-
-
-
+The article is based on "The RISC-V Instruction Set Manual, Volume II: Privileged Architecture, Document Version 1.12-draft". The latest version
+can be downloaded from [https://github.com/riscv/riscv-isa-manual/releases/latest].

@@ -48,7 +48,5 @@ virtual hart to another. This function is currently unused by seL4.
 they are the aliases of **hip.VSEIP** and **hie.VSEIE**. The same applies to other bits as well. For seL4, these delegations are enabled. Therefore,
 seL4 mainly uses **hvip** to inject interrupts without changing the the corresponding alias bits in **hip** and **hie**.
 
-
-
-
-
+The article is based on "The RISC-V Instruction Set Manual, Volume II: Privileged Architecture, Document Version 1.12-draft". The latest version
+can be downloaded from [https://github.com/riscv/riscv-isa-manual/releases/latest].
